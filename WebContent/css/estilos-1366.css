@@ -1,0 +1,29 @@
+/*
+TABLAS
+*/
+
+/*
+html {
+  background: url(images/bg.jpg) no-repeat center center fixed;
+  background: none!ie;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+
+#everything-wrapper {
+  width: 1224px;
+}
+
+.DivMainContent01-table-responsive {
+  height: 450px;
+  width: 1154px;
+}
+
+
+.menu li a {
+  /* meter esto a responsive */
+  width: 152px;
+}

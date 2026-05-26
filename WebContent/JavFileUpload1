@@ -1,0 +1,95 @@
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+
+<html:html locale="true">
+<head>
+<link rel="stylesheet" href="webbooking.css">
+
+<title>Struts File Upload Example</title>
+<html:base/>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
+<jsp:include page="nocache.jsp" flush="false" />
+<jsp:include page="include.jsp" flush="false" />
+<logic:present name="loginForm">
+   <html:hidden  name="loginForm" property="userValidate" />
+
+  <logic:equal name="loginForm" property="userValidate" value="validUser">
+
+
+<table width="68%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/toplink.gif" width="771" height="22" usemap="#mainMap" border="0"></td>
+  </tr>
+</table>
+<map name="peMap"> 
+  <area shape="rect" coords="13,19,235,71" href="http://www.paquetexpress.com.mx" target="_blank" alt="www.paquetexpress.com" title="www.paquetexpress.com">
+</map>
+<map name="mainMap"> 
+
+
+
+  <area shape="rect" coords="565,5,680,18" href="JavReportMain.jsp">
+       
+		<area shape="rect" coords="460,5,555,17" href="JavShipmentHistoryLog.jsp">
+        
+		<area shape="rect" coords="1,4,135,18" href="clientDestinationEntry.do">
+
+		<area shape="rect" coords="145,5,226,18" href="JavWebBookingMain.jsp">
+        
+		<area shape="rect" coords="236,5,342,18" href="webBookinggeneral.do?includeattribute=yes">
+        
+		<area shape="rect" coords="352,5,450,18" href="JavGuiaCancellation.jsp">
+       
+	   <area shape="rect" coords="690,4,772,18" href="login.do?logout=yes" alt="Terminar Sesión" title="Terminar Sesión">
+<!-- Added by Bala -->
+</map>
+  </logic:equal>
+</logic:present>
+<html:form action="/webbookingFileUpload" method="post" enctype="multipart/form-data">
+<table border="0" width="80%" cellspacing="0" cellpadding="0" bgcolor="#CEDEE9">
+<tr>
+<td align="center" colspan="2">
+<font size="4">Please Locate the File For Uploading</font>
+</tr>
+
+<tr>
+<td align="left" colspan="2">
+<font color="red"><html:errors/></font>
+</tr>
+<tr>
+<td align="right">
+File Name :
+</td>
+<td align="left">
+<html:file property="theFile"/> 
+</td>
+</tr>
+</table>
+
+<table border="0" width="80%" cellspacing="0" cellpadding="0" bgcolor="#CEDEE9">
+
+
+
+<tr>
+<td align="center" >
+<html:submit>Upload File</html:submit>
+</td>
+</tr>
+</table>
+
+<table border="0" width="80%" cellspacing="0" cellpadding="0" bgcolor="#CEDEE9">
+
+
+
+<tr>
+ <td colspan="2" align="right"> 
+     <img src="images/main_bottom.jpg" border="0" width="80%">
+     
+    </td>
+</tr>
+</table>
+
+</html:form>
+</body>
+</html:html>

@@ -1,0 +1,96 @@
+/*ESTILOS DE MATERIAL DESIGN*/
+ 
+/* form starting stylings ------------------------------- */
+.inputV2{
+	 
+}
+.inputV2 .group            { 
+  position:relative; 
+}
+.inputV2 input               {
+/*   display:block; */
+  border:none;
+  /*width: 90%;*/
+
+}
+.inputV2 input:focus         { outline:none; }
+
+/* LABEL ======================================= */
+.inputV2 label                {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+/* .inputV2 input:focus ~ label,  */
+/* .inputV2 input:valid ~ label         */
+.inputV2  label{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.inputV2 .bar    { position:relative; display:block; }
+.inputV2 .bar:before, .bar:after     {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.inputV2 .bar:before {
+  left:50%;
+}
+.inputV2 .bar:after {
+  right:50%; 
+}
+
+/* active state */
+.inputV2 input:focus ~ .bar:before, 
+.inputV2 input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.inputV2 .highlight {
+  position:absolute;
+  height:60%; 
+   top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.inputV2 input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}

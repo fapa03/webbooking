@@ -1,0 +1,70 @@
+/*ESTILOS DEL MENU*/
+.menu_sitio {
+    float: right;
+    border-bottom-color: rgba(24, 23, 74, 1);
+    border-bottom-style: groove;
+    border-bottom-width: 1px;
+    width: 206px;
+    text-align: right;
+    margin-left: 12px;
+    padding: 3px;
+}
+
+.menu_sitio a {
+    color: rgba(19, 19, 113, 1);
+    font-weight: bold;
+    font-size: 13px;
+    font-family: "Arial";
+    text-decoration: none;
+}
+.menu_sitio a:hover {
+    color: rgba(197, 92, 13, 1);
+    text-decoration: none;
+}
+
+#mensaje {
+	position: fixed;
+	top: 62px;
+	left: 15px;
+	width: 182px;
+}
+#mensaje label{
+	color: darkblue;
+	font-size: 16px;
+}
+
+/*MODAL ESTILOS */
+.modal-dialog .modal-content{
+	border-radius: 0px;
+	box-shadow: 0;
+}
+.modal-dialog .modal-content .modal-header {
+    text-align: center;
+    background: #171750;
+    color: whitesmoke;
+    padding: 0.6em;
+}
+
+.modal-dialog .modal-content .modal-header .close {
+    color: white;
+    margin-top: 2px;
+}
+
+.modal-dialog .modal-content .modal-footer {
+    padding: 6px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    margin-right: 10px;
+}
+
+/*COMBO BOX*/
+#combo{
+	text-align: left;
+	padding: 12px;
+	height: 3em;
+}
+
+
+
+
+

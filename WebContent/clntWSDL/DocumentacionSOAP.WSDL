@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.paquetexpress.com/webbooking/Documentacion/" xmlns:tns2="http://www.paquetexpress.com/webbooking/Documentacion/retorno" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Documentacion" targetNamespace="http://www.paquetexpress.com/webbooking/Documentacion/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.paquetexpress.com/webbooking/Documentacion/">
+      <xsd:element name="Data">
+
+      	<xsd:complexType>
+      		<xsd:sequence>
+				<xsd:element minOccurs="1" ref="tns:Header"/>
+    			<xsd:element minOccurs="1" ref="tns:SolicitudEnvio"/>
+      		</xsd:sequence>
+      	</xsd:complexType>      	
+      </xsd:element>
+      
+      <xsd:element name="Header">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element minOccurs="1" ref="tns:orgnClntId">    				
+    			</xsd:element>
+    			<xsd:element minOccurs="1" ref="tns:clntPswd"/>
+    			<xsd:element minOccurs="1" ref="tns:agreementKey"/>
+    			<xsd:element minOccurs="1" ref="tns:typeEvent"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="SolicitudEnvio">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="1" minOccurs="1" ref="tns:ClienteDestino">
+    			</xsd:element>
+    			<xsd:element minOccurs="1" ref="tns:DetalleEmbarque"/>
+    			<xsd:element minOccurs="1" ref="tns:Servicios"/>
+    			<xsd:element minOccurs="0" ref="tns:custAgnt"/>
+    			<xsd:element minOccurs="0" ref="tns:ghPediNumb"/>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:DatosAdicionales"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="ClienteDestino">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element minOccurs="1" ref="tns:DomicilioDestino"/>
+    			<xsd:element minOccurs="0" ref="tns:destClntId"/>
+    			<xsd:element minOccurs="1" ref="tns:destCustClntId"/>
+    			<xsd:element maxOccurs="1" minOccurs="1" ref="tns:destClntName"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="DomicilioDestino">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:pais"/>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:estado"/>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:ciudad"/>
+    			<xsd:element minOccurs="1" ref="tns:strtName"/>
+    			<xsd:element minOccurs="1" ref="tns:drnr"/>
+    			<xsd:element minOccurs="1" ref="tns:colonyName"/>
+    			<xsd:element minOccurs="1" ref="tns:zipCode"/>
+    			<xsd:element minOccurs="0" ref="tns:amMailId"/>
+    			<xsd:element minOccurs="0" ref="tns:phoneNo"/>
+    			<xsd:element minOccurs="0" ref="tns:destinationRefDom"/>    			
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="DetalleEmbarque">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="6" minOccurs="1" ref="tns:Embarque"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Embarque">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element minOccurs="1" ref="tns:quantity"/>
+    			<xsd:element minOccurs="1" ref="tns:shpCode"/>
+    			<xsd:element minOccurs="1" ref="tns:content"/>
+    			<xsd:element minOccurs="0" ref="tns:slabNo"/>
+    			<xsd:element minOccurs="0" ref="tns:weight"/>
+    			<xsd:element minOccurs="0" ref="tns:volume"/>
+    			<xsd:element minOccurs="0" ref="tns:longShip"/>
+    			<xsd:element minOccurs="0" ref="tns:widthShip"/>
+    			<xsd:element minOccurs="0" ref="tns:highShip"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Servicios">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:OtrosServicios">
+    			</xsd:element>
+    			<xsd:element minOccurs="1" ref="tns:dlvyType"/>
+    			<xsd:element minOccurs="1" ref="tns:ackType"/>
+    			<xsd:element minOccurs="0" ref="tns:codAmount"/>
+    			<xsd:element minOccurs="0" ref="tns:totlDeclVlue"/>
+    			<xsd:element minOccurs="1" ref="tns:invType"/>
+    			<xsd:element minOccurs="0" ref="tns:comments"/>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:reference">
+    			</xsd:element>
+    			<xsd:element minOccurs="0" ref="tns:formaPago"/>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:Referencias"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OtrosServicios">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element maxOccurs="unbounded" minOccurs="1" ref="tns:OtroServicio"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OtroServicio">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element minOccurs="1" ref="tns:clave"/>
+	    			<xsd:element minOccurs="0" ref="tns:descripcion"/>
+	    			<xsd:element minOccurs="0" ref="tns:dataAditional1"/>
+	    			<xsd:element minOccurs="0" ref="tns:dataAditional2"/>    			
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	</xsd:element>
+    <xsd:element name="clave">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="descripcion">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="255"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>	
+	<xsd:element name="dataAditional1">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="dataAditional2">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>	
+    <xsd:element name="orgnClntId">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="clntPswd">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="agreementKey">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="200"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="typeEvent">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="20"/>
+    			<xsd:enumeration value="Calcular"/>
+    			<xsd:enumeration value="Generar"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="custAgnt" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="ghPediNumb" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="destClntId" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="destClntName">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="80"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="destCustClntId" nillable="false">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="strtName">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="80"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="drnr">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="colonyName">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="60"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="zipCode">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="amMailId" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="80"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="phoneNo" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="20"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+	<xsd:element name="destinationRefDom" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="quantity">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:int">
+    			<xsd:minExclusive value="1"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="shpCode">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="content">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="100"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="slabNo" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="weight" type="xsd:double"/>
+
+    <xsd:element name="longShip" type="xsd:double"/>
+
+    <xsd:element name="widthShip" type="xsd:double"/>
+
+    <xsd:element name="highShip" type="xsd:double"/>
+
+    <xsd:element name="volume" type="xsd:double"/>
+
+    <xsd:element name="dlvyType">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:maxLength value="15"/>
+    			<xsd:minLength value="1"/>
+    			<xsd:pattern value="1"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="ackType">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:length value="1"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="codAmount" nillable="true" type="xsd:double"/>
+
+    <xsd:element name="totlDeclVlue" nillable="true" type="xsd:double"/>
+
+    <xsd:element name="invType">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="comments" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="255"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="reference" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="65"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>    
+    
+    <xsd:element name="formaPago" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="10"/>
+    			<xsd:enumeration value="PAID"/>
+    			<xsd:enumeration value="TO_PAY"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>    
+    
+    <xsd:element name="pais" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="60"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>    
+    
+    <xsd:element name="estado" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="60"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="ciudad" nillable="true">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="60"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="Referencias">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:Referencia"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+        
+    <xsd:element name="Referencia">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns:claveRef"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+        
+    <xsd:element name="claveRef">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="65"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="DatosAdicionales">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:DatoAdicional"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="DatoAdicional">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element ref="tns:claveDataAd"/>
+    			<xsd:element ref="tns:valorDataAd"/>
+    			<xsd:element ref="tns:dataAditional1"/>
+    			<xsd:element ref="tns:dataAditional2"/>
+    			<xsd:element ref="tns:dataAditional3"/>
+    			<xsd:element ref="tns:dataAditional4"/>    			
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="dataAditional3">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="dataAditional4">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+
+    <xsd:element name="claveDataAd">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    
+    <xsd:element name="valorDataAd">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="255"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+    </xsd:element>
+    </xsd:schema>
+
+    <xsd:schema targetNamespace="http://www.paquetexpress.com/webbooking/Documentacion/retorno">
+            <xsd:element name="DataResponse">
+	        <xsd:complexType>
+	        	<xsd:sequence>
+	        		<xsd:element ref="tns2:RetornoSolicitud"/>
+	        	</xsd:sequence>
+	        </xsd:complexType>
+    	</xsd:element>
+
+		<xsd:element name="RetornoSolicitud">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element minOccurs="0" ref="tns2:DetalleEmbarque"/>
+	    			<xsd:element minOccurs="0" ref="tns2:Servicios"/>
+	    			<xsd:element maxOccurs="1" minOccurs="1" ref="tns2:Mensajes"/>
+	    			<xsd:element minOccurs="0" ref="tns2:formNo"/>
+	    			<xsd:element minOccurs="0" ref="tns2:guiaNo"/>
+	    			<xsd:element minOccurs="0" ref="tns2:guiaNoTemp"/>
+	    			<xsd:element minOccurs="0" ref="tns2:cadenaImpresion"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>	
+	    <xsd:element name="DetalleEmbarque">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element maxOccurs="6" ref="tns2:Embarque"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+	
+	    <xsd:element name="Embarque">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element minOccurs="1" ref="tns2:quantity"/>
+	    			<xsd:element minOccurs="1" ref="tns2:shpCode"/>
+	    			<xsd:element minOccurs="1" ref="tns2:content"/>
+	    			<xsd:element minOccurs="0" ref="tns2:SlabNo"/>
+	    			<xsd:element minOccurs="0" ref="tns2:weight"/>
+	    			<xsd:element minOccurs="0" ref="tns2:volume"/>
+	    			<xsd:element minOccurs="0" ref="tns2:longShip"/>
+	    			<xsd:element minOccurs="0" ref="tns2:widthShip"/>
+	    			<xsd:element minOccurs="0" ref="tns2:highShip"/>
+	    			<xsd:element minOccurs="0" ref="tns2:slabAmount"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+	    <xsd:element name="OtrosServicios">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element maxOccurs="unbounded" minOccurs="1" ref="tns2:OtroServicio"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+		</xsd:element>
+	    <xsd:element name="OtroServicio">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element minOccurs="0" ref="tns2:clave"/>
+	    			<xsd:element minOccurs="0" ref="tns2:descripcion"/>
+	    			<xsd:element minOccurs="0" ref="tns2:serviceAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:otrTypeAmtDisc"/>
+	    			<xsd:element minOccurs="0" ref="tns2:otrTypeAmtTax"/>
+	    			<xsd:element minOccurs="0" ref="tns2:otrTypeAmtRetTax"/>
+	    			
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+	
+	    <xsd:element name="Importe">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element minOccurs="0" ref="tns2:shpAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:discAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:srvcAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:subTotlAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:taxAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:taxRetAmnt"/>
+	    			<xsd:element minOccurs="0" ref="tns2:totalAmnt"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+		
+		<xsd:element name="Mensajes">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns2:Mensaje"/>	    			
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+		
+	    <xsd:element name="Mensaje">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element minOccurs="0" ref="tns2:cveMsjeRetorno"/>
+	    			<xsd:element minOccurs="0" ref="tns2:desMsjeRetorno"/>
+	    			<xsd:element minOccurs="0" ref="tns2:tratamientoMsje"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:tipoMsje"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+	
+	    <xsd:element name="Servicios">
+	    	<xsd:complexType>
+	    		<xsd:sequence>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:OtrosServicios">
+	    			</xsd:element>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:Importe"/>
+	    			
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:ackType"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:ackTypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:ackTypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:ackTypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:ackTypeAmtRetTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:codAmount"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:codTypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:codTypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:codTypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:codTypeAmtRetTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:dlvyType"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:dlvyTypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:dlvyTypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:dlvyTypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:dlvyTypeAmtRetTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:totldeclVlue"> </xsd:element>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:invType"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:invTypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:invTypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:invTypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:invTypeAmtRetTax"/>  			
+	    			
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:radType"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:radTypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:radTypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:radTypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:radTypeAmtRetTax"/>
+	    			
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpEType"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpETypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpETypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpETypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpETypeAmtRetTax"/>
+	    			
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpType"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpTypeAmt"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpTypeAmtDisc"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpTypeAmtTax"/>
+	    			<xsd:element maxOccurs="1" minOccurs="0" ref="tns2:shpTypeAmtRetTax"/>
+	    			<xsd:element minOccurs="0" ref="tns2:formaPago"/>
+	    		</xsd:sequence>
+	    	</xsd:complexType>
+	    </xsd:element>
+	
+	    <xsd:element name="formNo">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="guiaNo">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="guiaNoTemp">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="cadenaImpresion">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="2000"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="quantity">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:int">
+	    			<xsd:minExclusive value="1"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+	    <xsd:element name="shpCode">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="content">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="100"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="SlabNo">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="weight" type="xsd:double"/>
+	
+	    <xsd:element name="volume" type="xsd:double"/>
+	
+	    <xsd:element name="longShip" type="xsd:double"/>
+	
+	    <xsd:element name="widthShip" type="xsd:double"/>
+	
+	    <xsd:element name="highShip" type="xsd:double"/>
+	
+	    <xsd:element name="slabAmount" type="xsd:double"/>
+	
+	    <xsd:element name="dlvyType">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="dlvyTypeAmt" type="xsd:double"/>
+	
+	    <xsd:element name="ackType">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="codAmount" type="xsd:double"/>
+	
+	    <xsd:element name="codTypeAmt" type="xsd:double"/>
+	
+	    <xsd:element name="totldeclVlue" type="xsd:double"/>
+	
+	    <xsd:element name="invType">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="invTypeAmt" type="xsd:double"/>
+	    
+	
+	    <xsd:element name="clave">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="descripcion">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="255"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="serviceAmnt" type="xsd:double"/>
+	
+	    <xsd:element name="shpAmnt" type="xsd:double"/>
+	
+	    <xsd:element name="discAmnt" type="xsd:double"/>
+	    
+	    <xsd:element name="srvcAmnt" type="xsd:double"/>
+	    
+	    <xsd:element name="subTotlAmnt" type="xsd:double"/>
+	    
+	    <xsd:element name="taxAmnt" type="xsd:double"/>
+	    
+	    <xsd:element name="taxRetAmnt" type="xsd:double"/>
+	    
+	    <xsd:element name="totalAmnt" type="xsd:double"/>
+	    
+	    <xsd:element name="formaPago">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="10"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+	    <xsd:element name="cveMsjeRetorno" type="xsd:int"/>
+	    
+	    <xsd:element name="desMsjeRetorno">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="255"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+	    <xsd:element name="tratamientoMsje">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="255"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+	    <xsd:element name="tipoMsje">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	
+	    <xsd:element name="ackTypeAmt" type="xsd:double"/>    	
+    
+	    <xsd:element name="dlvyTypeAmtDisc" type="xsd:double"/>
+    
+	    <xsd:element name="dlvyTypeAmtTax" type="xsd:double"/>    
+        
+        <xsd:element name="dlvyTypeAmtRetTax" type="xsd:double"/>
+
+	    <xsd:element name="ackTypeAmtDisc" type="xsd:double"/>
+    
+	    <xsd:element name="ackTypeAmtTax" type="xsd:double"/>
+        
+        <xsd:element name="ackTypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="codTypeAmtDisc" type="xsd:double"/>
+    
+	    <xsd:element name="codTypeAmtTax" type="xsd:double"/>   
+        
+        <xsd:element name="codTypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="invTypeAmtDisc" type="xsd:double"/>
+    
+	    <xsd:element name="invTypeAmtTax" type="xsd:double"/>   
+        
+        <xsd:element name="invTypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="shpType">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+        <xsd:element name="shpTypeAmt" type="xsd:double"/>
+        
+        <xsd:element name="shpTypeAmtDisc" type="xsd:double"/>
+    
+	    <xsd:element name="shpTypeAmtTax" type="xsd:double"/>   
+        
+        <xsd:element name="shpTypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="otrTypeAmtDisc" type="xsd:double"/>
+    
+	    <xsd:element name="otrTypeAmtTax" type="xsd:double"/>   
+        
+        <xsd:element name="otrTypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="shpEType">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+        <xsd:element name="shpETypeAmt" type="xsd:double"/>        
+        <xsd:element name="shpETypeAmtDisc" type="xsd:double"/>    
+	    <xsd:element name="shpETypeAmtTax" type="xsd:double"/>        
+        <xsd:element name="shpETypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="radType">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="15"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    
+        <xsd:element name="radTypeAmt" type="xsd:double"/>        
+        <xsd:element name="radTypeAmtDisc" type="xsd:double"/>    
+	    <xsd:element name="radTypeAmtTax" type="xsd:double"/>        
+        <xsd:element name="radTypeAmtRetTax" type="xsd:double"/>
+        
+        <xsd:element name="dataAditional1">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>    	
+    	</xsd:element>
+        <xsd:element name="dataAditional2">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="50"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+	    </xsd:element>
+	    <xsd:element name="dataAditional3">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="50"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    <xsd:element name="dataAditional4">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="50"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element>
+	    <xsd:element name="DatoAdicional">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element ref="tns2:claveDataAd"/>
+    			<xsd:element ref="tns2:valorDataAd"/>
+    			<xsd:element ref="tns2:dataAditional1"/>
+    			<xsd:element ref="tns2:dataAditional2"/>
+    			<xsd:element ref="tns2:dataAditional3"/>
+    			<xsd:element ref="tns2:dataAditional4"/>    			
+    		</xsd:sequence>
+    	</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="claveDataAd">
+    	<xsd:simpleType>
+    		<xsd:restriction base="xsd:string">
+    			<xsd:minLength value="1"/>
+    			<xsd:maxLength value="15"/>
+    		</xsd:restriction>
+    	</xsd:simpleType>
+	    </xsd:element>
+	    
+	    <xsd:element name="valorDataAd">
+	    	<xsd:simpleType>
+	    		<xsd:restriction base="xsd:string">
+	    			<xsd:minLength value="1"/>
+	    			<xsd:maxLength value="255"/>
+	    		</xsd:restriction>
+	    	</xsd:simpleType>
+	    </xsd:element> 
+        </xsd:schema>
+        
+  </wsdl:types>
+  <wsdl:message name="documentarGuiaRequest">
+    <wsdl:part element="tns:Data" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="documentarGuiaResponse">
+    <wsdl:part element="tns2:DataResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Documentacion">
+    <wsdl:operation name="documentarGuia">
+      <wsdl:input message="tns:documentarGuiaRequest"/>
+      <wsdl:output message="tns:documentarGuiaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentacionSOAP" type="tns:Documentacion">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="documentarGuia">
+      <soap:operation soapAction="http://www.paquetexpress.com/webbooking/Documentacion/documentarGuia"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Documentacion">
+    <wsdl:port binding="tns:DocumentacionSOAP" name="DocumentacionSOAP">
+      <soap:address location="http://localhost:8081/wsPaquetexpress/services/DocumentacionSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

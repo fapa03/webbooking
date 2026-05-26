@@ -1,0 +1,22 @@
+/*
+TABLAS
+*/
+
+#everything-wrapper {
+  width: 1624px;
+}
+
+
+.DivMainContent01-table-responsive {
+  height: 520px;
+  width: 1570px;
+}
+
+
+
+.menu li a {
+  /* meter esto a responsive */
+   width: 224px;
+  font-size: 1.1em;
+  letter-spacing: -1px;
+}

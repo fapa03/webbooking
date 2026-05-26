@@ -1,0 +1,278 @@
+.button
+{
+    BACKGROUND-COLOR: #003366;
+    COLOR: lightyellow;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bolder;
+    HEIGHT: 22px;
+    WIDTH: 100px;
+    cursor: pointer;
+}
+.bookbutton
+{
+    BACKGROUND-COLOR: #003366;
+    COLOR: lightyellow;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bolder
+}
+.button1
+{
+    BACKGROUND-COLOR: #003366;
+    COLOR: lightyellow;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bolder;
+    HEIGHT: 19px;
+    WIDTH: 55px
+}
+.button2
+{
+    BACKGROUND-COLOR: #003366;
+    COLOR: lightyellow;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bolder;
+    HEIGHT: 21px;
+    WIDTH: 58px
+}
+.button3 {
+	FONT-WEIGHT:bolder;
+	COLOR:lightyellow;
+	FONT-FAMILY:Arial;
+	FONT-SIZE:12px;
+	BACKGROUND-COLOR:#003366;
+	height:22;
+	width:75
+}
+.lov
+{
+    BACKGROUND-COLOR: #003366;
+    COLOR: lightyellow;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bolder;
+    HEIGHT: 19px;
+    WIDTH: 25px
+}
+.textreadonly
+{
+    BACKGROUND-COLOR: white;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase
+}
+.numbertextfield
+{
+    BACKGROUND-COLOR: white;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-ALIGN: right
+}
+.text
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 90px
+}
+.text2
+{
+    FONT-SIZE: 13px;
+    TEXT-TRANSFORM: uppercase;
+}
+.textGreenBG
+{
+	/*BACKGROUND-COLOR: #80ff80;*/
+	background-color : #F7F778; 
+    border: 1px solid #848484; 
+    outline:0; 
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;    
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 90px
+}
+.comment
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 330px
+}
+.textarea
+{
+    BACKGROUND-COLOR: white;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    TEXT-TRANSFORM: uppercase;
+}
+.td
+{
+    BACKGROUND-COLOR: white;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    TEXT-TRANSFORM: uppercase;
+    HEIGHT: 18px;
+}
+.mrbtd
+{
+    BACKGROUND-COLOR: white;
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    TEXT-TRANSFORM: uppercase
+}
+.textdescrip
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 150px
+}
+.textcontenido
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 250px
+}
+.textseguro
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 400px
+}
+.textconti
+{
+    FONT-FAMILY: Arial;
+    FONT-SIZE: 12px;
+    HEIGHT: 18px;
+    TEXT-TRANSFORM: uppercase;
+    WIDTH: 150px
+}
+.textMsgZExt{	
+	color:red;
+	font-size:12px;
+}
+div.tablaDetalle{
+	width:200px;
+	height:10px;
+	overflow: auto;
+}
+/*barra de espera*/
+.textareacontenido {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	text-align: left;
+	line-height: 15px;
+	text-transform: uppercase;
+	background-image:url(images/espera.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+/*barra de espera nueva*/
+.textareacontenidonew {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	text-align: left;
+	line-height: 15px;
+	text-transform: uppercase;
+	background-image:url(images/espera.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50%; /* Buscamos el centro horizontal (relativo) del navegador */
+	left: 50%; /* Buscamos el centro vertical (relativo) del navegador */
+	width: 350 px; /* Definimos el ancho del objeto a centrar */
+	height: 80px; /* Definimos el alto del objeto a centrar */
+	margin-top: -100px; /* Restamos la mitad de la altura del objeto con un margin-top */
+	margin-left: -40px; /* Restamos la mitad de la anchura del objeto con un margin-left */
+}
+.upper {
+    TEXT-TRANSFORM: uppercase
+}
+dt {
+	border: 1px solid #ccc;
+}
+dt span {
+	color: #fff;
+	border: 1px solid #ccc;
+	background-color: #003366;
+	margin-right: 10px;
+	padding: 0 2px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+.divReference{
+		HEIGHT: 60pt; 
+		OVERFLOW:auto; 
+		WIDTH: 100%; 
+		top:-10px; 
+		border: 1px solid #ccc; 
+		z-index: 1; 
+		margin: 0px; 
+		padding: 0px;
+		
+		visibility: hidden; 
+		position: absolute; 
+		top: 450px; 
+		left: 200px; 
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+}

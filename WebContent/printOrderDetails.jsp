@@ -1,0 +1,394 @@
+<%@ page contentType="text/html" import="java.util.*,bean.Global"%>
+
+
+<%
+	response.setHeader("Cache-Control","no-cache"); //HTTP 1.1
+	response.setHeader("Pragma","no-cache");		//HTTP 1.0
+	response.setDateHeader ("Expires", 0);			//prevents caching at the proxy server
+	
+	String MANIFEST_STATUS = (String)request.getAttribute("MANIFEST_STATUS");
+	String NUMBER_OF_GUIAS = (String)request.getAttribute("NUMBER_OF_GUIAS");
+	String MANIFEST_AMOUNT = (String)request.getAttribute("MANIFEST_AMOUNT");
+	String NUMBER_OF_PACKAGES = (String)request.getAttribute("NUMBER_OF_PACKAGES");
+	String PREFERED_COLLECTION_TIME = (String)request.getAttribute("PREFERED_COLLECTION_TIME");	
+	
+%>
+
+<html>
+<head>
+<title>Detalle de la orden</title>	
+
+	<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" media="screen" type="text/css" href="css/stylev2.css">
+	<link rel="stylesheet" media="screen" type="text/css" href="css/v2/materialDesign.css">
+	<script type="text/javascript" src="js/v2/global.js"></script>
+	<script type="text/javascript" src="js/jquery/1.12.0.js"></script>
+	<script type="text/javascript" src="barraEspera.js"></script>
+	<link href="images/logos/favicon.ico" rel="icon" type="image/x-icon" />
+<link rel=stylesheet media=screen type=text/css href=webbooking.css>
+</head>
+<body  leftMargin=0 topMargin=0 marginheight="0" marginwidth="0" class="backgroundStandard"   >
+<form method="post" name="form1">
+
+<map name="peMap"> 
+  <area shape="rect" coords="13,19,235,71" href="http://www.paquetexpress.com.mx" target="_blank" alt="www.paquetexpress.com" title="www.paquetexpress.com">
+</map>
+
+<table border="0" cellspacing="0" cellpadding="0" width="99%" style="WIDTH: 99%">
+<tr>
+	<td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>&nbsp;</td>
+                <% 
+					Global global = (Global)session.getAttribute("sGlobal");
+             	  	boolean dispAmntFlag = false;
+
+              	  	if((global.displayAmountFlag != null) && (global.displayAmountFlag.equalsIgnoreCase("Y"))) 
+                		dispAmntFlag = true;
+              	  	
+					ArrayList result = (ArrayList) request.getAttribute("defaultaddress");
+					String strtDrnr="";
+					HashMap values = null;
+					String rfc = "";
+					for(int i=0;i < result.size(); i++){
+						values = (HashMap) result.get(i);
+						strtDrnr = values.get("AM_STRT_NAME")+" "+values.get("AM_DRNR");
+						rfc = ((global.rfc!=null && global.rfc.length()>0)?"RFC: "+global.rfc:"");
+				%>
+                <td> 
+                  <div align="center">
+					<font face="Arial" size="2">
+						<b><%= global.clientName %></b><br>
+						<b><%= strtDrnr %></b><br>
+						<b><%= values.get("u16") %></b><br>
+						<b><%= values.get("u14") %></b><br>
+						<b><%=  rfc %></b>
+					</font> 
+                  </div>
+                </td>
+                <%
+					}
+                %>
+                <td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+         </table>
+	</td>
+</tr>
+
+<tr>
+	<td width="100%">
+		<table border="1" width="100%" cellspacing="0" cellpadding="0" class="tablaDetallev2" >
+		<tr> 
+			<td align="center" colspan="2"><b><font size="2" face="Arial">Detalle de la Orden</font></b></td>
+		</tr>
+		<tr> 
+			<td width="100%" colspan="0"> 
+				<table border="1" width="100%" cellspacing="0" cellpadding="0">
+					<tr> 
+						<td width="24%" align="right"><font face="Arial" size="2">
+						No. Orden&nbsp; </font></td>
+						<td width="14%" class="mrbtd" align="left"><%= session.getAttribute("MANIFEST_NUMBER").toString() %></td>
+						<td width="17%" align="right" nowrap><font face="Arial" size="2">
+						Status de la Orden&nbsp; </font></td>
+						<td width="41%" class="mrbtd">&nbsp;<%= MANIFEST_STATUS %></td>
+						<td width="4%"></td>
+					</tr>
+					<tr> 
+						<td width="24%" align="right"><font face="Arial" size="2">
+						No. de Guías&nbsp; </font></td>
+						<td width="14%" class="mrbtd"> 
+						<P align=right>&nbsp;&nbsp;<%= NUMBER_OF_GUIAS %></P></td>
+						<td width="17%" align="right"><font face="Arial" size="2">
+						Importe&nbsp; </font></td>
+						
+						<td width="41%" class="mrbtd" align="right">&nbsp; 
+						<%
+					//	if((global.displayAmountFlag != null) && (global.displayAmountFlag.equalsIgnoreCase("Y")))
+						if(dispAmntFlag) {
+					  	%>
+	        	          	<%= MANIFEST_AMOUNT %> 
+            	      	<%
+						} else {
+						%>
+								<font size="4"><b>******</b></font>
+						<%
+						}
+						%>
+
+						</td>
+						
+						<td width="4%"></td>
+					</tr>
+					<tr> 
+						<td width="24%" align="right"><font face="Arial" size="2">
+						No. de Paquetes&nbsp;</font></td>
+						<td width="14%" class="mrbtd"> 
+						<P align=right>&nbsp;&nbsp;<%= NUMBER_OF_PACKAGES %></P></td>
+						<td width="17%" align="right" nowrap><font face="Arial" size="2">
+						Hora de Recolección&nbsp;</font></td>
+						<td width="41%" class="mrbtd">&nbsp;<%= PREFERED_COLLECTION_TIME %></td>
+						<td width="4%"></td>
+					</tr>					
+				</table>
+			</td>
+		</tr>
+		<tr> 
+			<td width="100%" height="42"  colspan="7">&nbsp;</td>
+		</tr>
+		<tr> 
+			<td width="100%" align="center" ><font face="Arial" size="2"><b>Guías en Orden</b></font></td>
+		</tr>
+		<tr> 
+			<td width="100%" colspan="2"> 
+			<table border="1" width="100%" cellspacing="0" cellpadding="1">
+				<tr> 
+					<td width="6%" valign="bottom" align="middle"> <font size="2" face="Arial" align="center">No. 
+		            Guia</font></td>
+		            <td width="7%" valign="bottom" align="middle"><font size="2" face="Arial">No. 
+		            Rastreao</font></td>
+			    	<td width="18%" valign="bottom" align="middle"><font size="2" face="Arial">Referencia
+		            </font></td>
+		            <td width="11%" valign="bottom" align="middle"><font size="2" face="Arial">Sucursal 
+		            Destino</font></td>
+		            <td width="20%" valign="bottom" align="middle"><font size="2" face="Arial">Cliente 
+		            Destino</font></td>
+		            <td width="8%" valign="bottom" align="middle"> <font size="2" face="Arial">importe</font></td>
+		            <td width="6%" valign="bottom" align="middle"> <font size="2" face="Arial"> 
+		            No.de<br>
+		            Paquetes</font></td>
+		             <td width="6%" valign="bottom" align="middle"> <font size="2" face="Arial"> 
+			    	Peso            
+		            </font></td>
+		            <td width="6%" valign="bottom" align="middle"> <font size="2" face="Arial"> 
+			        Volumen</font></td>
+				</tr>
+		<% 
+		        ArrayList  manifestDetails = (ArrayList)request.getAttribute("printManifestDetails");
+			if(manifestDetails!=null && manifestDetails.size()!=0){
+				boolean encabezadoPAID = false;
+				boolean encabezadoTO_PAY = false;
+				boolean encabezadoPP = false;
+				HashMap manifestValues = null;
+				for(int i=0;i<manifestDetails.size();i++){
+					manifestValues=(HashMap)manifestDetails.get(i);
+					if (manifestValues.get("GH_PYMT_MODE").equals("PAID") && !manifestValues.get("GH_DOCU_TYPE").equals("P")) {
+						if (!encabezadoPAID) {
+							%>
+							<tr> 
+								<td width="100%" align="center" colspan="9"><font face="Arial" size="2"><b>Guías de Credito</b></font></td>
+							</tr>
+							<%
+							encabezadoPAID = true;
+						}
+		%>
+				        <tr> 
+							<td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GH_FORM_NO")%></font></td>
+				
+				            <td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GH_GUIA_NO")%></font></td>
+							<td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GR_GUIA_REFR")%></font></td>
+				            <td class="mrbtd" nowrap><font size="1" face="Arial"> <%= manifestValues.get("DESTBRANCNHNAME") %></font></td>
+				            <td class="mrbtd"><font size="1" face="Arial"> <%=manifestValues.get("GH_DEST_CLNT_NAME")%></font></td>
+				            
+				            <td class="mrbtd" align="right">
+				            	<font size="1" face="Arial"> 
+										<%
+									//	if((global.displayAmountFlag != null) && (global.displayAmountFlag.equalsIgnoreCase("Y")))
+										if(dispAmntFlag)	
+											{
+									  	%>
+					       	            		<%=manifestValues.get("GH_GUIA_AMNT")%>
+				            	      	<%
+											}
+											else
+											{
+										%>
+												<font size="4"><b>******</b></font>
+										<%
+											}
+										%>
+				
+				            		
+				            	</font>
+				            </td>
+				            
+				            <td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_NUMB_PACK")%></font></td>
+				        	<td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_TOTL_WGHT")%></font></td>
+				        	<td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_TOTL_VLUM")%></font></td>
+				        </tr>
+     
+		<%
+					}
+		    	}
+				for(int i=0;i<manifestDetails.size();i++){
+					manifestValues = (HashMap)manifestDetails.get(i);
+					if (manifestValues.get("GH_PYMT_MODE").equals("TO_PAY") && !manifestValues.get("GH_DOCU_TYPE").equals("P")) {
+						if (!encabezadoTO_PAY) {
+							%>
+							<tr> 
+								<td width="100%" align="center" colspan="9"><font face="Arial" size="2"><b>Guías Flete por Cobrar</b></font></td>
+							</tr>
+							<%
+							encabezadoTO_PAY = true;
+						}
+		%>
+				        <tr> 
+							<td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GH_FORM_NO")%></font></td>
+				
+				            <td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GH_GUIA_NO")%></font></td>
+							<td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GR_GUIA_REFR")%></font></td>
+				            <td class="mrbtd" nowrap><font size="1" face="Arial"> <%= manifestValues.get("DESTBRANCNHNAME") %></font></td>
+				            <td class="mrbtd"><font size="1" face="Arial"> <%=manifestValues.get("GH_DEST_CLNT_NAME")%></font></td>
+				            
+				            <td class="mrbtd" align="right">
+				            	<font size="1" face="Arial"> 
+										<%
+									//	if((global.displayAmountFlag != null) && (global.displayAmountFlag.equalsIgnoreCase("Y")))
+										if(dispAmntFlag) {
+									  	%>
+					       	            		<%=manifestValues.get("GH_GUIA_AMNT")%>
+				            	      	<%
+										} else {
+										%>
+												<font size="4"><b>******</b></font>
+										<%
+										}
+										%>			            		
+				            	</font>
+				            </td>				            
+				            <td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_NUMB_PACK")%></font></td>
+				        	<td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_TOTL_WGHT")%></font></td>
+				        	<td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_TOTL_VLUM")%></font></td>
+				        </tr>
+     
+		<%
+					}
+		    	}
+				for(int i=0;i<manifestDetails.size();i++){
+					manifestValues = (HashMap)manifestDetails.get(i);
+					if (manifestValues.get("GH_DOCU_TYPE").equals("P")) {
+						if (!encabezadoPP) {
+							%>
+							<tr> 
+								<td width="100%" align="center" colspan="9"><font face="Arial" size="2"><b>Guías de Prepago</b></font></td>
+							</tr>
+							<%
+							encabezadoPP = true;
+						}
+		%>
+				        <tr> 
+							<td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GH_FORM_NO")%></font></td>
+				
+				            <td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GH_GUIA_NO")%></font></td>
+							<td class="mrbtd" align="left"><font size="1" face="Arial"> <%=manifestValues.get("GR_GUIA_REFR")%></font></td>
+				            <td class="mrbtd" nowrap><font size="1" face="Arial"> <%= manifestValues.get("DESTBRANCNHNAME") %></font></td>
+				            <td class="mrbtd"><font size="1" face="Arial"> <%=manifestValues.get("GH_DEST_CLNT_NAME")%></font></td>
+				            
+				            <td class="mrbtd" align="right">
+				            	<font size="1" face="Arial"> 
+										<%
+									//	if((global.displayAmountFlag != null) && (global.displayAmountFlag.equalsIgnoreCase("Y")))
+										if(dispAmntFlag) {
+									  	%>
+					       	            		<%=manifestValues.get("GH_GUIA_AMNT")%>
+				            	      	<%
+										} else {
+										%>
+												<font size="4"><b>******</b></font>
+										<%
+										}
+										%>			            		
+				            	</font>
+				            </td>				            
+				            <td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_NUMB_PACK")%></font></td>
+				        	<td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_TOTL_WGHT")%></font></td>
+				       	 <td class="mrbtd" align="right"><font size="1" face="Arial"> <%=manifestValues.get("GH_TOTL_VLUM")%></font></td>
+				        </tr>
+     
+		<%
+					}
+		    	}
+		  	}
+		%>	 
+        </table>
+     </td>
+ </tr>
+ 
+	<tr> 
+      <td width="100%" height="21" colspan="2"> 
+		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="center" height="50"> <input type="button" class="button" name="return" value="Regresar" onClick="javascript:history.back()"></td>
+			</tr>        
+			</table>
+		</td>
+	</tr>
+  </table>	      
+  </td>
+ </tr>
+</table> 
+  
+
+<table width="90%" border="0" cellspacing="0" align="center">
+  <tr> 
+    <td colspan="3" height="60">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="47%" height="33">&nbsp;</td>
+    <td width="5%" height="33">&nbsp;</td>
+    <td width="48%" height="33">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3" height="4"></td>
+  </tr>
+  <tr> 
+    <td width="47%" bgcolor="#000000" height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+    <td width="5%" height="1"></td>
+    <td width="48%" bgcolor="#000000" height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+  </tr>
+  <tr> 
+    <td width="47%"> 
+      <div align="center"><b><font size="1" face="Arial"><%= global.clientName %></font></b></div>
+    </td>
+    <td width="5%">&nbsp;</td>
+    <td width="55%"> 
+      <div align="center"><b><font size="1" face="Arial">IMPULSORA DE TRANSPORTES 
+        MEXICANOS SA DE CV</font></b></div>
+    </td>
+  </tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" align="center">
+<tr> 
+        <td width="35%"> 
+          <div align="center"><b><font size="1" face="Arial">&nbsp;</font></b></div>
+        </td>
+        <td width="35%"> <div align="center"><b><font size="1" face="Arial">&nbsp;</font></b></div></td>
+        <td width="35%"> 
+          <div align="center"><b><font size="1" face="Arial">&nbsp;</font></b></div>
+        </td>
+  </tr>
+ 
+<tr> 
+        <td width="35%"> 
+          <div align="center"><b><font size="1" face="Arial">NOMBRE OPERADOR RAD</font></b></div>
+        </td>
+        <td width="35%"> <div align="center"><b><font size="1" face="Arial">NUMERO UNIDAD RAD</font></b></div></td>
+        <td width="35%"> 
+          <div align="center"><b><font size="1" face="Arial">PLACAS UNIDAD RAD</font></b></div>
+        </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

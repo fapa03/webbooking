@@ -1,0 +1,47 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: visible; /* Este valor se cambió de hidden a visible */
+    opacity: 1; /* Este valor se cambió de 0 a 1 */
+    z-index: 999; /* Set a higher z-index value */
+}
+
+.overlay.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#popup:target {
+    visibility: hidden; /* Se regresa a hidden para ocultar */
+  	opacity: 0; /* Se regresa a o para hacerlo "invisible" */
+  	z-index: -1; /* Set a lower z-index to move it behind the overlay */
+}
+#popupBody{
+    width: 46%;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #CCC;
+    background: #FFF;
+    position: relative;
+    transition: all 5s ease-in-out;
+    margin: 20% auto;
+    z-index: 1000; /* Set a higher z-index value for the popup */
+}
+
+#cerrar{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F00;
+    z-index: 1001; /* Set a higher z-index value for the close button */
+}
+	

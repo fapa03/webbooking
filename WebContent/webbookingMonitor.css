@@ -1,0 +1,65 @@
+@CHARSET "ISO-8859-1";
+
+TABLE {border-collapse:collapse; border: none;}
+TD {padding: 0;}
+.titulo {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;	
+	color:#333333;
+	font-weight: bold;
+}
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	/*background-color:#c3dde0;*/
+	border-width: 1px;
+	padding: 5px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	/*background-color:#d4e3e5;*/
+	background-color:white;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #a9c6c9;
+/*	color: #2D303B;*/	
+}
+.labelTitle{
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 2px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.labelText{	
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: #a9c6c9;	
+	background-color:white;
+}
+.LabelError{FONT-SIZE: 9pt; FONT-WEIGHT: bold; color:red;  FONT-FAMILY: Verdana; 
+}
+.labelTitleFooter{	
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	background-color:#CEDEE9;
+	color:#333333;
+	font-weight: bold;
+	padding: 2px;
+	border: none;
+}

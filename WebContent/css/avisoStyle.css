@@ -1,0 +1,64 @@
+@font-face {
+  font-family:'GothamPQX';
+  src: url('../fonts/gotham/Gotham-Book.eot'); 
+  src: url('../fonts/gotham/Gotham-Book.eot'), /* IE6-IE8 */
+       url('../fonts/gotham/Gotham-Book.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/gotham/Gotham-Book.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+@font-face {
+  font-family:'GothamPQXBold';
+  src: url('../fonts/gotham/Gotham-Bold.eot'); 
+  src: url('../fonts/gotham/Gotham-Bold.eot'), /* IE6-IE8 */
+       url('../fonts/gotham/Gotham-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/gotham/Gotham-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+*{
+	font-family:'GothamPQX'!important;
+}
+body {
+	background: url(../images/menu/1.jpg) !important;
+	margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #CCC;
+    background: #FFF;
+    position: relative;
+    transition: all 5s ease-in-out;
+    font-size: 12px;
+}
+
+p {
+    text-align: justify;
+}
+
+#header {
+	background-color: #171750;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	font-size: 12px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+#content {
+	background-color: white;
+	border: 1px solid lightgray;
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: 80%;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+.title {
+	color: #0D4E94;
+	font-weight: bold;
+	text-align: center;
+}
+
+.subsection {
+	text-decoration: underline;
+	padding: 2px;
+}

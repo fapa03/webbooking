@@ -1,0 +1,19 @@
+/*
+TABLAS
+*/
+
+#everything-wrapper {
+  width: 1424px;
+}
+
+
+.DivMainContent01-table-responsive {
+  height: 480px;
+  width: 1350px;
+}
+
+
+.menu li a {
+  /* meter esto a responsive */
+  width: 182px;
+}

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+
+<!-- This is a blank Struts configuration file based on the example application, 
+	with commented examples of some items. NOTE: If you have a generator tool 
+	to create the correspoCnding Java classes for you, you could include the details 
+	in the "form-bean" declarations. Otherwise, you would only define the "form-bean" 
+	element itself, with the corresponding "name" and "type" attributes, as shown 
+	here. -->
+
+<struts-config>
+
+	<!-- ========== Data Source Configuration =============================== -->
+
+	<!-- <data-sources> <data-source autoCommit="false" description="Example 
+		Data Source Configuration" driverClass="org.postgresql.Driver" maxCount="4" 
+		minCount="2" password="mypassword" url="jdbc:postgresql://localhost/mydatabase" 
+		user="myusername" /> </data-sources> -->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+		<!-- Example logon form bean <form-bean name="logonForm" type="org.apache.struts.example.LogonForm"/> -->
+
+		<form-bean name="rangoFechasReporteform" type="beanForm.RangoFechasReporteForm" />
+
+		<!-- Rama -->
+		<form-bean name="webBookinggeneral" type="bean.JavWebBookingGeneralForm" />				
+		<form-bean name="webBookingservicesdetailadd" type="JavWebBookingServicesDetailAddForm" />
+		<form-bean name="webBookingservicesdetailedit" type="JavWebBookingServicesDetailEditForm" />
+		<form-bean name="webBookingservicesdetailadd1" type="bean.JavWebBookingServicesDetailAddForm1" />
+		<form-bean name="webBookingservicesdetailedit1" type="JavWebBookingServicesDetailEditForm1" />
+		<form-bean name="webBookingservices" type="bean.JavWebBookingServicesForm" />
+		<!-- Rama -->
+
+		<form-bean name="webBookinggeneralMain" type="beanForm.JavWebBookingGeneralMainForm" />	
+		<!-- AAP01 -->
+
+		<!--Angshu -->
+		<form-bean name="guiaCancellationForm" type="beanForm.JavGuiaCancellationForm" />
+		<form-bean name="javManifestDetailsForm" type="JavManifestDetailsForm" />
+		<!--Angshu -->
+
+		<!--JSA01 -->
+		<form-bean name="guiaReturnForm" type="beanForm.JavGuiaReturnForm" />
+		
+		<!-- Vishnu -->
+		<form-bean name="servicesform" type="JavServicesForm" />
+		<form-bean name="shipmentform" type="JavShipmentHistoryForm" />
+		<!-- Vishnu -->
+
+		<!-- Lov -->
+		<form-bean name="lovform" type="LovForm" />
+		<!-- Lov -->
+
+		<!--Siva -->
+		<form-bean name="loginForm" type="JavLoginForm" />
+		<form-bean name="webguiaDetailForm" type="JavWebGuiaDetailForm" />
+		<form-bean name="changePasswordForm" type="JavChangePasswordForm" />
+		<form-bean name="manifestGenerationForm" type="bean.JavManifestGenerationForm" />
+		<!--Siva -->
+
+		<!--Added by Murugesapandian on 12/05/2006 related to client destination 
+			entry -->
+		<form-bean name="clientDestinationEntryForm" type="beanForm.ClientDestinationEntryForm" />
+		<!--Added by Murugesapandian on 12/05/2006 related to client destination 
+			entry -->
+
+		<form-bean name="FileUpLoad" type="JavFileUploadForm" />
+		<form-bean name="FileUpLoad2" type="beanForm.JavFileUploadForm2" />
+		<form-bean name="invoiceConversionForm" type="paquetexpress.internal.prepaid.conversion.form.ConversionForm"/>
+		<form-bean name="invoiceConversionFormCajas" type="paquetexpress.internal.prepaidcajas.conversion.form.ConversionForm"/>
+		<form-bean name="invoiceConversionMonitorForm" type="paquetexpress.internal.prepaid.monitor.form.ConversionMonitorForm"/>
+		<form-bean name="notificacionesForm" type="paquetexpress.internal.notificaciones.form.NotificacionesForm"/>
+		<form-bean name="usedGuiaForm" type="paquetexpress.internal.prepaid.usedGuia.form.UsedGuiaForm"/>
+		<form-bean name="zipCodesForm" type="mx.com.paquetexpress.zipCodes.form.ZipCodeForm"/>
+		<form-bean name="reprintGuiaForm" type="mx.com.paquetexpress.reprintGuia.form.JavReprintGuiaForm" />
+		<form-bean name="cancelGuiaMultForm" type="mx.com.paquetexpress.cancelGuiaMult.form.JavCancelGuiaMultForm" />
+	</form-beans>
+
+	<!-- ========== Global Forward Definitions ============================== -->
+	<global-forwards>
+		<!-- Example logon forward <forward name="logon" path="/logon.jsp"/> -->
+		<forward name="nosession" path="/JavLogin.jsp" />
+		<forward name="globalServices" path="/JavWebBookingServicesDetail.html" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions ============================== -->
+	<action-mappings>
+		<!-- Example logon action <action path="/logon" type="org.apache.struts.example.LogonAction" 
+			name="logonForm" scope="request" input="/logon.jsp"> </action> -->
+
+		<!-- Example logoff action <action path="/logoff" type="org.apache.struts.example.LogoffAction"> 
+			<forward name="success" path="/index.jsp"/> </action> -->
+
+		<!-- Start WebBooking -->
+		<!--Rama -->
+		<action path="/webBookinggeneral" type="JavWebBookingGeneralAction"
+			name="webBookinggeneral" scope="session" input="/JavWebBookingGeneral.jsp">
+			<forward name="cliententry" path="/clientDestinationEntry.do" />
+			<forward name="thispage" path="/JavWebBookingGeneral.jsp" />
+			<forward name="webbookingdetail" path="/JavWebBookingServicesDetail.html" />
+			<forward name="webbookingdetaildefault" path="/JavWebBookingServicesDetailDefault.html" />
+			<!-- added by palanivel to display the additional Service lov -->
+			<forward name="webbookingservices" path="/webBookingservices.do" />
+			<forward name="mainpage" path="/JavWebBookingMain.jsp" />
+			<forward name="guiacancel" path="/JavGuiaCancellation.jsp" />
+			<forward name="shipmenthistory" path="/JavShipmentHistoryLog.jsp" />
+			<forward name="clientreport" path="/JavReportMain.jsp" />
+			<forward name="prepaidguia" path="/GuiaConversionMonitor.jsp" />
+			<forward name="cancelguiamult" path="/JavGuiaCancelMult.jsp" />
+		</action>
+		<action path="/webBookingservicesdetailadd" type="JavWebBookingServicesDetailAddAction"
+			name="webBookingservicesdetailadd" scope="request">
+			<forward name="thispage" path="/JavWebBookingServicesDetailAdd.jsp" />
+			<forward name="webbookingservicesdetailedit" path="/JavWebBookingServicesDetailEdit.jsp" />
+			<forward name="webbookinggeneral" path="/JavWebBookingGeneral.jsp" />
+			<forward name="webbookingservices" path="/JavWebBookingServices.jsp" />
+		</action>
+		<action path="/webBookingservicesdetailedit" type="JavWebBookingServicesDetailEditAction"
+			name="webBookingservicesdetailedit" scope="request">
+			<forward name="thispage" path="/JavWebBookingServicesDetailEdit.jsp" />
+			<forward name="webbookingservicesdetailadd" path="/JavWebBookingServicesDetailAdd.jsp" />
+			<forward name="webbookinggeneral" path="/JavWebBookingGeneral.jsp" />
+			<forward name="webbookingservices" path="/JavWebBookingServices.jsp" />
+		</action>
+		<action path="/webBookingservicesdetailadd1" type="JavWebBookingServicesDetailAddAction1"
+			name="webBookingservicesdetailadd1" scope="request">
+			<forward name="thispage" path="/JavWebBookingServicesDetailAdd1.jsp" />
+			<forward name="webbookingservicesdetailedit1" path="/JavWebBookingServicesDetailEdit1.jsp" />
+			<forward name="webbookinggeneral" path="/JavWebBookingGeneral.jsp" />
+			<forward name="webbookingservices" path="/JavWebBookingServices.jsp" />
+		</action>
+		<action path="/webBookingservicesdetailedit1" type="JavWebBookingServicesDetailEditAction1"
+			name="webBookingservicesdetailedit1" scope="request">
+			<forward name="thispage" path="/JavWebBookingServicesDetailEdit1.jsp" />
+			<forward name="webbookingservicesdetailadd1" path="/JavWebBookingServicesDetailAdd1.jsp" />
+			<forward name="webbookinggeneral" path="/JavWebBookingGeneral.jsp" />
+			<forward name="webbookingservices" path="/JavWebBookingServices.jsp" />
+		</action>
+		<action path="/webBookingservices" type="JavWebBookingServicesAction"
+			name="webBookingservices" scope="session">
+			<forward name="thispage" path="/JavWebBookingServices.jsp" />
+			<forward name="webbookinggeneral" path="/JavWebBookingGeneral.jsp" />
+			<forward name="webbookingdetail" path="/JavWebBookingServicesDetail.html" />
+			<forward name="webbookingdetaildefault" path="/JavWebBookingServicesDetailDefault.html" />
+			<forward name="webbookingservicesaditional" path="/JavWebBookingServicesAditional.jsp" />
+			<forward name="webbookingnullservicesaditional" path="/JavWebBookingNullServicesAditional.jsp" />
+			<forward name="downloadpage" path="/Download.jsp" />
+		</action>
+		<!--Rama -->
+		<!--Lov Action -->
+		<action path="/lov" type="LovAction" name="LovForm" scope="request">
+			<forward name="branch" path="/BranchIdLov.jsp" />
+			<forward name="branchAddress" path="/BranchAddressLov.jsp" />
+			<forward name="client" path="/ClientLov.jsp" />
+			<forward name="clientNew" path="/ClientLovNew.jsp" />
+			<forward name="destinationaddress" path="/DestinationAddressLov.jsp" />
+			<forward name="fiscaladdress" path="/FiscalAddressLov.jsp" />
+			<forward name="clientaddress" path="/OriginAddressLov.jsp" />
+			<forward name="description" path="/DescriptionLov.jsp" />
+			<forward name="tariffenvelope" path="/TariffEnvelopeLov.jsp" />
+			<forward name="tariffpackets" path="/TariffPacketsLov.jsp" />
+			<!-- Added by Murugesapandian 17/05/06 related to Destination Client Entry -->
+			<forward name="clientType" path="/ClientTypeLov.jsp" />
+			<forward name="assignedToBranch" path="/AssignedToBranchLov.jsp" />
+			<forward name="destBranch" path="/DestBranchLov.jsp" />
+			<!-- For Additional Service LOV -->
+			<forward name="service" path="/ServiceLov.jsp" />
+			<forward name="cities" path="/CitiesLov.jsp" />
+			<forward name="postal" path="/PostalLov.jsp" />
+			<forward name="regClientDest" path="/ClientLovDest.jsp" />
+			<forward name="sipweborginaddress" path="/OriginAddressLovPP.jsp"/>	
+			<forward name="sipwebclientonly" path="/SipwebClientOnlyLov.jsp"/>
+			<forward name="sipwebfiscaladdress" path="/SipwebFiscalAddressLov.jsp"/>	
+			<forward name="branchPP" path="/BranchIdLovPP.jsp" />
+			<forward name="clientPP" path="/ClientLovPP.jsp"/>	
+			<forward name="destinationaddressPP" path="/DestinationAddressLovPP.jsp" />
+			<forward name="brncAsig" path="/BranchIdLovAsign.jsp"/>
+			<forward name="clntAsig" path="/ClientLovAsigMonitor.jsp"/>
+			<forward name="userAsig" path="/ClientUserLovAsigMonitor.jsp"/>
+			<forward name="catProducts" path="/CatProductsLov.jsp"/>
+			<forward name="regimFiscal" path="/RegimFiscalLov.jsp"/>
+			<forward name="usoCfdi" path="/UsoCfdiLov.jsp"/>
+			<forward name="datosFiscalesForm" path="/DatosFiscalesForm.jsp"/>
+			<forward name="cliententry" path="/clientDestinationEntry.do" />
+		</action>
+		<!--End Of Lov Action -->
+		<!--Angshu -->
+		<action path="/guiaCancellation" type="beanAction.JavGuiaCancellationAction"
+			name="guiaCancellationForm" scope="request" validate="false">
+			<forward name="success" path="/dummy.jsp" />
+			<forward name="thispage" path="/JavGuiaCancellation.jsp" />
+		</action>
+		<!--JSA01 -->
+		<action path="/guiaReturn" type="beanAction.JavGuiaReturnAction"
+			name="guiaReturnForm" scope="request" validate="false">
+			<forward name="success" path="/dummy.jsp" />
+			<forward name="thispage" path="/JavGuiaReturn.jsp" />
+		</action>
+		<!--Angshu -->
+		<action path="/javManifestDetails" type="JavManifestDetailsAction"
+			name="javManifestDetailsForm" scope="request" validate="false">
+			<forward name="thispage" path="/JavManifestDetails.jsp" />
+		</action>
+		<!--Angshu -->
+		<!--Vishnu -->
+		<action path="/services" type="JavServicesAction" name="servicesform"
+			scope="request" input="/JavServices.jsp">
+			<forward name="service1" path="/JavServices.jsp" />
+			<forward name="service2" path="/JavServices2.jsp" />
+		</action>
+		<action path="/shipmentHistory" type="JavShipmentHistoryAction"
+			name="shipmentform" scope="request" input="/JavShipmentHistoryLog.jsp">
+			<forward name="shipmenthistorylog" path="/JavShipmentHistoryLog.jsp" />
+			<forward name="printshipmenthistorylog" path="/PrintShipmentHistoryLog.jsp" />
+			<forward name="manifestdetails" path="/javManifestDetails.do" />
+		</action>
+		<!--End Vishnu -->
+		<!--Siva -->
+		<action path="/login" type="JavLoginAction" name="loginForm"
+			scope="session" input="/JavLogin.jsp">
+			<forward name="success" path="/JavWebBookingMain.jsp" />
+			<forward name="failed" path="/JavLogin.jsp" />
+		</action>
+		<action path="/webguiadetails" type="JavWebGuiaDetailAction"
+			name="webguiaDetailForm" scope="request" input="/JavWebGuiaDetails.jsp">
+			<forward name="success" path="/JavWebGuiaDetails.jsp" />
+		</action>
+		<action path="/changepassword" type="JavChangePasswordAction"
+			name="changePasswordForm" scope="request" input="/JavChangePassword.jsp">
+			<forward name="success" path="/JavWebBookingMain.jsp" />
+			<forward name="failed" path="/JavChangePassword.jsp" />
+		</action>
+		<action path="/javManifestDetails" type="JavManifestDetailsAction"
+			name="javManifestDetailsForm" scope="request" validate="false">
+			<forward name="thispage" path="/JavManifestDetails.jsp" />
+			<forward name="printmanifestdetails" path="/PrintManifestDetails.jsp" />
+			<forward name="printOrderDetails" path="/printOrderDetails.jsp" />
+		</action>
+		<action path="/rangoFechasReporte" type="beanAction.RangoFechasReporteAction" name="rangoFechasReporteform"
+			scope="request" input="/RangoFechasReporte.jsp">
+			<forward name="noRecords" path="/JavEmpty.jsp" />
+			<forward name="showRecords" path="/RangoFechaReporteDownload.jsp" />
+		</action>		
+		<action path="/manifestgeneration" type="JavManifestGenerationAction"
+			name="manifestGenerationForm" scope="request" input="/JavManifestGeneration.jsp">
+			<forward name="success" path="/JavManifestGeneration.jsp" />
+			<forward name="failed" path="/JavManifestGeneration.jsp" />
+			<forward name="printbookedguias" path="/PrintBookedGuias.jsp" />
+			<forward name="showmodel" path="/JavShipmentHistoryLog.jsp?ShowModel=true" />
+			<!--added by Amal to enable popup to get the manifest type -->
+		</action>
+		<!--Added by Murugesapandian on 12/05/2006 related to client destination 
+			entry -->
+		<action path="/clientDestinationEntry" type="beanAction.ClientDestinationEntryAction"
+			name="clientDestinationEntryForm" scope="request" input="/ClientDestinationEntry.jsp">
+			<forward name="success" path="/ClientDestinationEntry.jsp" />
+			<forward name="error_page" path="/ClientDestinationEntry.jsp" />
+			<forward name="main_page" path="/JavWebBookingMain.jsp"
+				redirect="true" />
+		</action>
+		<!--End Siva -->		
+		<action path="/webBookinggeneralMain" type="beanAction.JavWebBookingGeneralMainAction"
+			name="webBookinggeneralMain" scope="session" input="/JavWebBookingGeneralMain.jsp">
+			<forward name="cliententry" path="/clientDestinationEntry.do" />
+			<forward name="thispage" path="/JavWebBookingGeneralMain.jsp" />
+			<forward name="mainpage" path="/JavWebBookingMain.jsp" />
+			<forward name="guiacancel" path="/JavGuiaCancellation.jsp" />
+			<forward name="shipmenthistory" path="/JavShipmentHistoryLog.jsp" />
+			<forward name="clientreport" path="/JavReportMain.jsp" />
+			<forward name="downloadpage" path="/JavWebBookingGeneralMainDownload.jsp" />
+			<forward name="guiaPP" path="/guiaConversionMonitor.do?currentTask=start" />
+			<forward name="changePassword" path="/JavChangePassword.jsp" />
+		</action>		
+		<!-- AAP01 Final de nueva documentacion -->
+		<!-- End WebBooking -->
+		<!-- The standard administrative actions available with Struts -->
+		<!-- These would be either omitted or protected by security -->
+		<!-- in a real application deployment -->
+
+		<action path="/admin/addFormBean" type="org.apache.struts.actions.AddFormBeanAction" />
+		<action path="/admin/addForward" type="org.apache.struts.actions.AddForwardAction" />
+		<action path="/admin/addMapping" type="org.apache.struts.actions.AddMappingAction" />
+		<action path="/admin/reload" type="org.apache.struts.actions.ReloadAction" />
+		<action path="/admin/removeFormBean" type="org.apache.struts.actions.RemoveFormBeanAction" />
+		<action path="/admin/removeForward" type="org.apache.struts.actions.RemoveForwardAction" />
+		<action path="/admin/removeMapping" type="org.apache.struts.actions.RemoveMappingAction" />
+		<action path="/webbookingFileUpload" type="JavFileUploadAction"
+			name="FileUpLoad" scope="request" validate="true">
+			<forward name="thispage" path="/JavFileUploading.jsp" />
+			<forward name="success" path="/DownloadImport.jsp" />
+			<forward name="log" path="/DownloadFileLog.jsp" />
+			<forward name="UploadPage" path="/JavFileUploading.jsp" />
+		</action>
+		<action path="/webbookingFileUpload2" type="beanAction.JavFileUploadAction2"
+			name="FileUpLoad2" scope="request" validate="true">
+			<forward name="thispage" path="/JavFileUploading2.jsp" />
+			<forward name="success" path="/DownloadImport.jsp" />
+			<forward name="log" path="/DownloadFileLog.jsp" />
+			<forward name="UploadPage" path="/JavFileUploading2.jsp" />
+		</action>
+		<action path="/guiaconversioncajas" type="paquetexpress.internal.prepaidcajas.conversion.action.ConversionAction" name="invoiceConversionFormCajas"   >
+          <forward name="success" path="/GuiaConversionCajas.jsp" />
+          <forward name="start" path="/GuiaConversionCajas.jsp" />
+          <forward name="error" path="/InvoiceCancel.jsp" />
+          <forward name="downloadpage" path="/Guia_Convertprint2.jsp" />
+          <forward name="formnomodify" path="/Form_No_Modify_Reinsert.jsp" />
+          <forward name="cliententry" path="/clientDestinationEntry.do" />
+        </action>
+        <action path="/guiaconversion" type="paquetexpress.internal.prepaid.conversion.action.ConversionAction" name="invoiceConversionForm">
+          <forward name="success" path="/GuiaConversion.jsp" />
+          <forward name="start" path="/GuiaConversion.jsp" />
+          <forward name="error" path="/InvoiceCancel.jsp" />
+          <forward name="downloadpage" path="/Guia_Convertprint1.jsp" /> 		  
+          <forward name="cliententry" path="/clientDestinationEntry.do" />         
+        </action>
+        <action path="/guiaConversionMonitor" type="paquetexpress.internal.prepaid.monitor.action.ConversionMonitorAction" name="invoiceConversionMonitorForm" scope="request">
+         <forward name="prepaidguia" path="/GuiaConversionMonitor.jsp" />
+          <forward name="loadSetDetail" path="/GuiaConversionMonitor.jsp" />
+          <forward name="start" path="/GuiaConversionMonitor.jsp" />
+          <forward name="controlGuia" path="/GuiaConversionMonitorI.jsp"/>
+          <forward name="clearGuias" path="/clearGuias.jsp" />
+          <forward name="mainpage" path="/JavWebBookingMain.jsp" />
+          <forward name="asignaGuia" path="/GuiaConversionMonitor.jsp" />
+          <forward name="cambioFiltro" path="/GuiaConversionMonitor.jsp" />          
+        </action>
+        <action path="/usedGuia" type="paquetexpress.internal.prepaid.usedGuia.action.UsedGuiaAction" name="usedGuiaForm" scope="request">
+          <forward name="loadSetDetail" path="/GuiaConversionUsed.jsp" />
+          <forward name="start" path="/GuiaConversionUsed.jsp" />
+          <forward name="controlGuia" path="/GuiaConversionUsed.jsp" />
+          <forward name="clearGuias" path="/clearGuias.jsp" />
+          <forward name="mainpage" path="/JavReportMain.jsp" />
+          <forward name="asignaGuia" path="/GuiaConversionUsed.jsp" />
+          <forward name="cambioFiltro" path="/GuiaConversionUsed.jsp" />          
+        </action>        
+        <action path="/notificaciones" type="paquetexpress.internal.notificaciones.action.NotificacionesAction" name="notificacionesForm">
+          <forward name="success" path="http://paquetexpress.com.mx/notificacion_exito.htm" redirect="true"/>
+          <forward name="error" path="http://paquetexpress.com.mx/notificacion_error.htm" redirect="true"/>               
+        </action>
+        <action path="/zipCodes" type="mx.com.paquetexpress.zipCodes.action.ZipCodeAction" name="zipCodesForm" scope="request" input="/ZipCodes.jsp">
+          <forward name="loadSetDetail" path="/GuiaConversionMonitor.jsp" />
+          <forward name="start" path="/ZipCodes.jsp" />
+          <forward name="selectEstado" path="/ZipCodes.jsp"/>
+          <forward name="selectDelMun" path="/ZipCodes.jsp"/>
+          <forward name="findByDetail" path="/ZipCodes.jsp"/>
+          <forward name="fastFind" path="/ZipCodes.jsp" />                     
+        </action>        
+        <action path="/mainpage" type="org.apache.struts.actions.ForwardAction" parameter="/JavWebBookingMain.jsp"/>
+        <action path="/reprintGuia" type="mx.com.paquetexpress.reprintGuia.action.JavReprintGuiaAction"
+			name="reprintGuiaForm" scope="request" validate="false">
+			<forward name="thispage" path="/JavReprintGuia.jsp" />
+		</action>
+		<action path="/cancelGuiaMult" type="mx.com.paquetexpress.cancelGuiaMult.action.JavCancelGuiaMultAction"
+			name="cancelGuiaMultForm" scope="request" validate="false">
+			<forward name="thispage" path="/JavCancelGuiaMult.jsp" />
+		</action>
+    </action-mappings>
+</struts-config>
